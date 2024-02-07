@@ -1,0 +1,129 @@
+
+//+------------------------------------------------------------------+
+//|                                                   SST Kill Shot |
+//|                                           Developed by Forex Robot Easy Team |
+//|                                              Developer's site: forexroboteasy.com |
+//+------------------------------------------------------------------+
+
+//+------------------------------------------------------------------+
+//| Custom indicator initialization function                         |
+//+------------------------------------------------------------------+
+int OnInit()
+{
+   // Add initialization code here
+
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert initialization function                                   |
+//+------------------------------------------------------------------+
+int OnDeinit(const int reason)
+{
+   // Add deinitialization code here
+
+   return(INIT_SUCCEEDED);
+}
+
+//+------------------------------------------------------------------+
+//| Expert tick function                                             |
+//+------------------------------------------------------------------+
+void OnTick()
+{
+   // Add tick function code here
+
+   // 1. Identify fair value gaps during the first hour of trading
+   if (TimeHour(TimeCurrent()) == 1)
+   {
+      double fairValueGap = CalculateFairValueGap();
+      
+      // 2. Determine if bulls or bears are in control
+      bool isBullsControl = DetermineControl(fairValueGap);
+      
+      // 3. Place pending market orders in and around the identified fair value gaps
+      if (isBullsControl)
+      {
+         PlaceBuyOrders(fairValueGap);
+      }
+      else
+      {
+         PlaceSellOrders(fairValueGap);
+      }
+   }
+}
+
+//+------------------------------------------------------------------+
+//| Calculate fair value gap                                         |
+//+------------------------------------------------------------------+
+double CalculateFairValueGap()
+{
+   // Add calculation code here
+   double fairValueGap = 0.0;
+
+   // ...
+
+   return fairValueGap;
+}
+
+//+------------------------------------------------------------------+
+//| Determine who is in control (bulls or bears)                      |
+//+------------------------------------------------------------------+
+bool DetermineControl(double fairValueGap)
+{
+   // Add determination code here
+   bool isBullsControl = false;
+
+   // ...
+
+   return isBullsControl;
+}
+
+//+------------------------------------------------------------------+
+//| Place buy orders in and around fair value gaps                    |
+//+------------------------------------------------------------------+
+void PlaceBuyOrders(double fairValueGap)
+{
+   // Add buy order placement code here
+
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Place sell orders in and around fair value gaps                   |
+//+------------------------------------------------------------------+
+void PlaceSellOrders(double fairValueGap)
+{
+   // Add sell order placement code here
+
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Custom function 1                                                |
+//+------------------------------------------------------------------+
+void CustomFunction1()
+{
+   // Add custom function 1 code here
+
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Custom function 2                                                |
+//+------------------------------------------------------------------+
+void CustomFunction2()
+{
+   // Add custom function 2 code here
+
+   // ...
+}
+
+//+------------------------------------------------------------------+
+//| Custom function 3                                                |
+//+------------------------------------------------------------------+
+void CustomFunction3()
+{
+   // Add custom function 3 code here
+
+   // ...
+}
